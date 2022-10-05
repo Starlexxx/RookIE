@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="row" align="center">
+        <% @courses.each do |course| %>
+          <div class="col-md-4">
+            <div class="card mt-3" style="Width:300px;height:300px;margin:5px 5px 1px 25px;">
+              <div class="card-body">
+                <h3><%= link_to course.title, course_path(course.id) %></h3>
+                <%= link_to t('View'), course_path(course.id), class: 'btn btn-primary' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

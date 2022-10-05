@@ -3,6 +3,8 @@ class GameSet < ApplicationRecord
 
   has_many :games
 
+  belongs_to :course
+
   def games
     @games ||= PGN.parse(File.read(pgn_path))
   end

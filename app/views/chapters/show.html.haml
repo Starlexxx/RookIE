@@ -1,0 +1,9 @@
+.container-fluid.mt-3
+  %h3= @chapter.title
+  %div
+    = link_to t('Create Stage'), new_chapter_stage_path(@chapter), class: 'btn btn-primary'
+  %hr/
+  .btn-group
+    = link_to t('Edit'), edit_chapter_path(@chapter), class: 'btn btn-outline-primary'
+    = link_to t('Delete'), chapter_path(@chapter), data: { turbo_method: :delete }, class: 'btn btn-outline-danger'
+    = link_to t('Back'), course_path(@chapter.course), class: 'btn btn-outine-secondary'

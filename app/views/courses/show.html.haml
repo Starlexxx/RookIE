@@ -1,0 +1,20 @@
+.container-fluid.mt-3
+  %h3= @course.title
+  %p= @course.description
+  %center= video_tag url_for(@course.video), :size => "720x405", controls: true
+  %div
+    %ul.list-group
+      - @course.chapters.each do |chapter|
+        %li.list-group-item.list-group-item-primary
+          = link_to chapter.title, chapter_path(chapter)
+        - chapter.stages.each do |stage|
+          %li.list-group-item
+            = link_to stage.title, stage_path(stage)
+  %hr/
+  %div
+    = link_to t('Create Chapter'), new_course_chapter_path(@course), class: 'btn btn-primary'
+  %hr/
+  .btn-group
+    = link_to t('Edit'), edit_course_path(@course.id), class: 'btn btn-outline-primary'
+    = link_to t('Delete'), course_path(@course), data: { turbo_method: :delete }, class: 'btn btn-outline-danger'
+    = link_to t('Back'), courses_path, class: 'btn btn-outine-secondary'

@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-md-10
+      .row{:align => "center"}
+        - @courses.each do |course|
+          .col-md-4
+            .card.mt-3{:style => "Width:300px;height:300px;margin:5px 5px 1px 25px;"}
+              .card-body
+                %h3= link_to course.title, course_path(course.id)
+                = link_to t('View'), course_path(course.id), class: 'btn btn-primary'

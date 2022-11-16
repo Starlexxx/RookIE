@@ -1,0 +1,11 @@
+.flex-row.d-flex.justify-content-center
+  .col-md-8
+    .card.mt-5
+      .card-body
+        = form_with(model: [@course, @chapter], local: true) do |f|
+          .form-group
+            = f.label :title
+            = f.text_field :title, class: 'form-control'
+          = f.submit class: 'btn btn-outline-primary' do
+            = t("Update chapter")
+          = link_to t("Back"), course_path(@course), class: 'btn btn-outine-secondary'

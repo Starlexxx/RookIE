@@ -1,0 +1,1 @@
+/opt/homebrew/Cellar/emacs-plus@27/27.2/Emacs.app//Applications/Emacs.app

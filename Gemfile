@@ -45,8 +45,10 @@ gem 'bootsnap', require: false
 gem 'rubocop-shopify', require: false
 
 gem 'haml'
-gem 'html2haml'
 gem 'haml-rails', '~> 2.0'
+gem 'html2haml'
+
+gem 'simple_form'
 # Use Sass to process CSS
 # gem "sassc-rails"
 

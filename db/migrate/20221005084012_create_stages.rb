@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 class CreateStages < ActiveRecord::Migration[7.0]
   def change
     create_table :stages do |t|
       t.string :title
-      t.references :chapter, index: true, foreign_key: true
+      t.integer :stage_type
+      t.references :chapter
 
       t.timestamps
     end

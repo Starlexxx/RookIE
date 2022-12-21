@@ -2,8 +2,6 @@ class Game < ApplicationRecord
   serialize :tags, Hash
   serialize :moves, Array
 
-  attr_reader :pgn_game
-
   belongs_to :game_set
 
   def pgn_game

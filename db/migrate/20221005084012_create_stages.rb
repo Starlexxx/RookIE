@@ -5,7 +5,8 @@ class CreateStages < ActiveRecord::Migration[7.0]
     create_table :stages do |t|
       t.string :title
       t.integer :stage_type
-      t.references :chapter
+      t.integer :game_number
+      t.integer :chapter_id
 
       t.timestamps
     end

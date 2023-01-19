@@ -2,7 +2,7 @@
   .col-md-8
     .card.mt-5
       .card-body
-        = form_for @course do |f|
+        = simple_form_for @course do |f|
           .form-group
             = f.label :title
             = f.text_field :title, class: 'form-control'
@@ -10,6 +10,12 @@
             = f.label :video
           .form-group
             = f.file_field :video
+          .form-group
+            = f.label :pgn
+          .form-group
+            = f.file_field :pgn
+          .form-group
+            = f.input :player_color, collection: Course.player_colors.keys, autocomplete: 'off'
           .form-group
             = f.label :description
             = f.text_area :description, class: 'form-control', rows: 20

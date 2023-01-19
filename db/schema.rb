@@ -41,19 +41,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_084012) do
 
   create_table "chapters", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
-    t.bigint "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_chapters_on_course_id"
-  end
-
-  create_table "chess_boards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
+    t.integer "player_color"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_084012) do
 
   create_table "game_sets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "pgn_path"
+    t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,19 +65,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_084012) do
     t.text "tags"
     t.text "moves"
     t.string "result"
-    t.bigint "game_set_id"
+    t.integer "game_set_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["game_set_id"], name: "index_games_on_game_set_id"
   end
 
   create_table "stages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.integer "stage_type"
-    t.bigint "chapter_id"
+    t.integer "game_number"
+    t.integer "chapter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["chapter_id"], name: "index_stages_on_chapter_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

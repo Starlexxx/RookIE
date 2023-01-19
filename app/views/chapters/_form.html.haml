@@ -8,4 +8,4 @@
             = f.text_field :title, class: 'form-control'
           = f.submit class: 'btn btn-outline-primary' do
             = t("Update chapter")
-          = link_to t("Back"), course_path(@course), class: 'btn btn-outine-secondary'
+          = link_to t("Back"), course_path(@chapter.course), class: 'btn btn-outine-secondary'

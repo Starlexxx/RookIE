@@ -1,0 +1,27 @@
+.flex-row.d-flex.justify-content-center
+  .col-md-8
+    .card.mt-5
+      .card-body
+        = simple_form_for @stage.new_record? ? [@chapter, @stage] : @stage do |f|
+          .form-group
+            = f.label :title
+            = f.text_field :title, class: 'form-control'
+            .mb-3
+            %fieldset.contents{"data-controller" => "element"}
+              = f.input :stage_type, collection: Stage.stage_types.keys, autocomplete: 'off',
+                        input_html: { data: { action: "change->element#click" } }, prompt: {}
+              %button{"data-element-target" => "click", formaction: action_name == 'edit' ? edit_stage_path : new_chapter_stage_path, formmethod: "get", hidden: ""}
+              %hr
+              - case @stage.stage_type
+              - when 'video'
+                .form-group
+                  = f.label :video
+                .form-group
+                  = f.file_field :video
+              - when 'study', 'drill'
+                .form-group
+                  = f.input :game_number, collection: @games
+
+          = f.submit class: 'btn btn-outline-primary' do
+            = t("Update stage")
+          = link_to t("Back"), chapter_path(@stage.chapter), class: 'btn btn-outine-secondary'

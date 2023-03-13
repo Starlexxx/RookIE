@@ -1,0 +1,25 @@
+.container-fluid.mt-3
+  %h3= @stage.title
+  - case @stage.stage_type
+  - when 'video'
+    %center= video_tag url_for(@stage.video), :size => "720x405", controls: true
+  - when 'study'
+    = content_tag(:div, "", id:"board", data: {pgn: @stage.pgn, type: @stage.stage_type, controller: "chess"}, style: "width: 600px")
+    %br
+    #board-buttons
+      %button#btnStart.btn{type: "button"}
+        %i.btn.btn-info Start
+      %button#btnPrevious.btn.btn-default{type: "button"}
+        %i.btn.btn-info Previous
+      %button#btnNext.btn.btn-default{type: "button"}
+        %i.btn.btn-info Next
+      %button#btnEnd.btn.btn-default{type: "button"}
+        %i.btn.btn-info End
+  - when 'drill'
+    = content_tag(:div, "", id:"board", data: {pgn: @stage.pgn, type: @stage.stage_type,
+      player_color: @stage.course.player_color.slice(0), controller: "chess"}, style: "width: 600px")
+
+  %hr
+  = link_to t('Edit'), edit_stage_path(@stage), class: 'btn btn-outline-primary'
+  = link_to t('Delete'), chapter_stages_path(@stage), data: { turbo_method: :delete }, class: 'btn btn-outline-danger'
+  = link_to t('Back'), course_path(@stage.chapter.course), class: 'btn btn-outine-secondary'

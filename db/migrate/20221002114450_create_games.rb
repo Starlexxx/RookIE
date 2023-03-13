@@ -4,7 +4,7 @@ class CreateGames < ActiveRecord::Migration[7.0]
       t.text :tags
       t.text :moves
       t.string :result
-      t.references :game_set, index: true, foreign_key: true
+      t.integer :game_set_id
 
       t.timestamps
     end

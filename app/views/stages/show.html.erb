@@ -1,7 +1,0 @@
-<div class="container-fluid mt-3">
-  <h3><%= @chapter.title %></h3>
-
-  <%= link_to t('Edit'), edit_course_chapter_path(@chapter), class: 'btn btn-outline-primary' %>
-  <%= link_to t('Delete'), course_chapter_path(@chapter), data: { turbo_method: :delete }, class: 'btn btn-outline-danger' %>
-  <%= link_to t('Back'), course_path(@chapter.course), class: 'btn btn-outine-secondary' %>
-</div>

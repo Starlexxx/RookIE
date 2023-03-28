@@ -1,24 +1,28 @@
-# README
+# RookIE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Web-application for creating interactive chess courses. Create course with only one pgn file and app will devide it into games, which you can use in different chapters. Upload videos to explain game plan and tactic tricks.
 
-Things you may want to cover:
+## Requirements:
 
-* Ruby version
+- **Ruby** 3.0.1
+- **Rails** 7.0.4
+- **MySQL** 8.0.32+
 
-* System dependencies
+## Running Locally
 
-* Configuration
+Make sure you have all the requirments installed.
 
-* Database creation
+```sh
+git clone git@github.com:Starlexxx/RookIE.git # or clone your own fork
+cd RookIE
+bundle install
+rails db:create:migrate
+rails s
+```
 
-* Database initialization
+Your app should now be running on [localhost:3000](http://localhost:3000/).
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## TODO
+* Black figures logic
+* Moderator page for approving courses content
+* Tactic lessons

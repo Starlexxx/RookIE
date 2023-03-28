@@ -28,6 +28,8 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 
 gem 'jquery-rails'
+
+gem 'bootstrap', '~> 5.2.2'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -49,12 +51,16 @@ gem 'haml'
 gem 'haml-rails', '~> 2.0'
 gem 'html2haml'
 
+gem 'inline_svg'
+
 gem 'simple_form'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+
+gem 'devise'
 
 gem 'pgn'
 

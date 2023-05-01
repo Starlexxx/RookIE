@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
+  has_many :courses, dependent: :delete_all
+
   def moderator?
     is_a?(Moderator)
   end

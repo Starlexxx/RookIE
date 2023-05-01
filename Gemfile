@@ -45,8 +45,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-gem 'rubocop-shopify', require: false
-
 gem 'haml'
 gem 'haml-rails', '~> 2.0'
 gem 'html2haml'
@@ -63,6 +61,8 @@ gem 'simple_form'
 gem 'devise'
 
 gem 'pgn'
+
+gem 'active_storage_validations'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

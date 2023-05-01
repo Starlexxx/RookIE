@@ -11,11 +11,15 @@
           .form-group
             = f.file_field :video
           .form-group
+            = f.label :thumbnail
+          .form-group
+            = f.file_field :thumbnail
+          .form-group
             = f.label :pgn
           .form-group
             = f.file_field :pgn
           .form-group
-            = f.input :player_color, collection: Course.player_colors.keys, autocomplete: 'off'
+            = f.input :player_color, collection: Course.player_colors.keys, include_blank: false
           .form-group
             = f.label :description
             = f.text_area :description, class: 'form-control', rows: 20

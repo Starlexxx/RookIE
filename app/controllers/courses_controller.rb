@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_courses, only: %i[index]
   before_action :set_course, only: %i[show edit update destroy]
+  before_action :validate_user, only: %i[edit update destroy]
 
   def index
     @courses = Course.all
@@ -34,8 +36,12 @@ class CoursesController < ApplicationController
 
   private
 
+  def validate_user
+    return :unauthorized if @course.user_id != current_user.id || !current_user.moderator?
+  end
+
   def course_params
-    params.require(:course).permit(:title, :description, :video, :pgn, :player_color)
+    params.require(:course).permit(:title, :description, :video, :thumbnail, :pgn, :player_color)
   end
 
   def set_courses

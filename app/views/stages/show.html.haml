@@ -4,7 +4,8 @@
   - when 'video'
     %center= video_tag url_for(@stage.video), :size => "720x405", controls: true
   - when 'study'
-    = content_tag(:div, "", id:"board", data: {pgn: @stage.pgn, type: @stage.stage_type, controller: "chess"}, style: "width: 600px")
+    = content_tag(:div, "", id:"board", data: {pgn: @stage.pgn, type: @stage.stage_type, controller: "chess"},
+      style: "width: 600px")
     %br
     #board-buttons
       %button#btnStart.btn{type: "button"}

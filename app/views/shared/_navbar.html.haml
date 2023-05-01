@@ -1,7 +1,7 @@
 .navbar.navbar-expand-sm.navbar-light.navbar-lewagon
   .container-fluid
     = link_to root_path, class: "navbar-brand" do
-      = inline_svg_tag("RookIE.svg", width: '48px', height: '48px')
+      = inline_svg_tag("RookIE.svg", width: '48px', height: '48px', class: "navbar-brand")
     %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", type: "button"}
       %span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse
@@ -11,7 +11,7 @@
         - if user_signed_in?
           - if current_user.moderator?
             %li.nav-item
-              = link_to "moderator page", "#", class: "nav-link"
+              = link_to "Moderator page", "#", class: "nav-link"
           %li.nav-item
             = link_to "Create Course", new_course_path, class: "nav-link"
           %li.nav-item.dropdown
